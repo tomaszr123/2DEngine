@@ -1,0 +1,14 @@
+﻿Build started 03-Nov-14 9:55:49 AM.
+     1>Project "B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\Libs\x86\glew\include /I.\Libs\x86\glfw\include /I.\inc\ /I.\bin\include\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TOMASZROCZNIAK2DENGINE_EXPORTS /D GLEW_STATIC /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Framework.cpp
+         Framework.cpp
+       Link:
+         B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll" /INCREMENTAL /NOLOGO /LIBPATH:.\Libs\x86\glew\lib /LIBPATH:".\Libs\x86\glfw\lib-msvc100" /LIBPATH:.\Libs /LIBPATH:.\Debug OpenGL32.lib glfw.lib glew32s.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.lib" /MACHINE:X86 /DLL Debug\Application.obj
+         Debug\Framework.obj
+         TomaszRoczniak2DEngine.vcxproj -> B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll
+     1>Done Building Project "B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.70
