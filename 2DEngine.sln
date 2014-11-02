@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TomaszRoczniak2DEngine", "TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj", "{9D02536E-1E09-42C0-B308-B0D2182B7E76}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp1", "TestApp1\TestApp1.vcxproj", "{8C4E3F10-F968-4B63-98C9-C2A3E0FF8611}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9D02536E-1E09-42C0-B308-B0D2182B7E76} = {9D02536E-1E09-42C0-B308-B0D2182B7E76}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D02536E-1E09-42C0-B308-B0D2182B7E76}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D02536E-1E09-42C0-B308-B0D2182B7E76}.Debug|Win32.Build.0 = Debug|Win32
+		{9D02536E-1E09-42C0-B308-B0D2182B7E76}.Release|Win32.ActiveCfg = Release|Win32
+		{9D02536E-1E09-42C0-B308-B0D2182B7E76}.Release|Win32.Build.0 = Release|Win32
+		{8C4E3F10-F968-4B63-98C9-C2A3E0FF8611}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8C4E3F10-F968-4B63-98C9-C2A3E0FF8611}.Debug|Win32.Build.0 = Debug|Win32
+		{8C4E3F10-F968-4B63-98C9-C2A3E0FF8611}.Release|Win32.ActiveCfg = Release|Win32
+		{8C4E3F10-F968-4B63-98C9-C2A3E0FF8611}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

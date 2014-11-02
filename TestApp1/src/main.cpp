@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 		ClearScreen();
 		std::cout << "time passed /f \n" << GetDeltaTime() << std::endl;
 
-
+		// blah blah blah just checking if this works 
 	}
 	Shutdown();
 
