@@ -117,7 +117,7 @@ bool Application::FrameworkUpdate()
 // clears the back buffer
 void Application::ClearScreen()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
 float Application::GetDeltaTime()
