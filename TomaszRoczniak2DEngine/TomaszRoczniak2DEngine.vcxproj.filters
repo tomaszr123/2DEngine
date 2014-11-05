@@ -24,6 +24,9 @@
     <ClInclude Include="inc\CTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\CSpritebatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -35,5 +38,19 @@
     <ClCompile Include="src\CTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\CSpritebatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\FragShader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\GeometryShader.geom">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\VertexShader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
