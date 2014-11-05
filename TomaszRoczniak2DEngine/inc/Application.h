@@ -19,17 +19,18 @@
 #include <gl\glfw.h>
 #include "Framework.h"
 
+class CTexture;
+
 class FRAMEWORK2D Application
 {
 public:
-
+	// a struct for delta time and game time 
 	struct SGameTime
 	{
 	public:
 		float DeltaTime;
 		float elapsedGameTime;
 	}gametime;
-
 
 	// singleton functions
 	//--------------------------
@@ -58,16 +59,16 @@ public:
 	// returns the time that has passed
 	float GetDeltaTime();
 
+	// Creates the texture
+	unsigned int CreateTexture(const char *filename);
+	void DestroyTexture(unsigned int textureID);
+
 private:
 
 	// singleton ptr;
 	static Application *ms_singleton;
 
-
-
-
 private:
-
 
 	// Constructor / Destructors private for singleton
 	Application();
@@ -85,6 +86,7 @@ private:
 	// a bool  for vsync
 	bool m_bVSyncEnabled;
 
+	CTexture *m_texture;
 	
 };
 ////////////////////////////////////////////////////////////

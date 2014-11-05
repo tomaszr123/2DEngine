@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "Application.h"
 #include <assert.h>
-
+#include "CTexture.h"
 
 // initialise static variables
 Application * Application::ms_singleton = nullptr;
@@ -23,7 +23,6 @@ Application *Application::GetInstance()
 	return ms_singleton;
 }
 
-
 Application::Application()
 {
 	m_uiWindowWidth = 800;
@@ -31,10 +30,13 @@ Application::Application()
 	m_bFullScreen = false;
 	m_bFrameworkClosed = false;
 	m_bVSyncEnabled = false;
+
+	m_texture = new CTexture();
 }
 Application::~Application()
 {
-
+	delete m_texture;
+	m_texture = nullptr;
 }
 bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_uiWindowHeight, bool a_bFullScreen /*= false*/)
 {
@@ -46,7 +48,6 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 	{
 		return false;
 	}
-
 
 	// this creates the window to the size that was passed in and checks if full screen or not 
 	glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE,GL_TRUE);
@@ -85,7 +86,7 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 
 	return true;
 }
-
+// closes th window and shuts down the full framework 
 void Application::Shutdown()
 {
 	glfwCloseWindow();
@@ -111,8 +112,13 @@ unsigned int Application::GetWindowHeight()
 // framework update and checks if its still running or been closed
 bool Application::FrameworkUpdate()
 {
+	glfwSwapBuffers();
+    glfwPollEvents();
 
-	return true;
+
+	m_bFrameworkClosed = glfwGetWindowParam( GLFW_OPENED );
+
+	return m_bFrameworkClosed;
 }
 // clears the back buffer
 void Application::ClearScreen()
@@ -129,4 +135,14 @@ float Application::GetDeltaTime()
 	lastTime = glfwGetTime();
 
 	return gametime.DeltaTime;
+}
+
+unsigned int Application::CreateTexture(const char *filename)
+{
+	return m_texture->CreateTexture(filename);
+}
+
+void Application::DestroyTexture(unsigned int textureID)
+{
+	m_texture->DestroyTexture(textureID);
 }

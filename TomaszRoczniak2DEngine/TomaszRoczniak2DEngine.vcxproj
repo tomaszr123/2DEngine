@@ -13,9 +13,11 @@
   <ItemGroup>
     <ClInclude Include="bin\include\Framework.h" />
     <ClInclude Include="inc\Application.h" />
+    <ClInclude Include="inc\CTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\CTexture.cpp" />
     <ClCompile Include="src\Framework.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -64,13 +66,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;TOMASZROCZNIAK2DENGINE_EXPORTS;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\Libs\x86\glew\include;.\Libs\x86\glfw\include;.\inc\;.\bin\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Libs\x86\glew\include;.\Libs\x86\glfw\include;.\inc\;.\bin\include\;.\Libs\soil\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\Libs\x86\glew\lib;.\Libs\x86\glfw\lib-msvc100;.\Libs;.\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenGL32.lib;glfw.lib;glew32s.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\Libs\x86\glew\lib;.\Libs\x86\glfw\lib-msvc100;.\Libs;.\Debug;.\Libs\soil\lib\vs2012;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenGL32.lib;glfw.lib;glew32s.lib;glu32.lib;SOIL_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

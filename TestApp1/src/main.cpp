@@ -1,17 +1,26 @@
 #include "Framework.h"
 #include <iostream>
+#include <crtdbg.h>
+
+unsigned int texture;
+
+
 int main(int argc, char **argv)
 {
 	Initialise(800, 600, false);
 
+	texture = CreateTexture("./crate_sideup.png");
 	while(FrameworkUpdate())
 	{
 		ClearScreen();
-		std::cout << "time passed /f \n" << GetDeltaTime() << std::endl;
-
-		// blah blah blah just checking if this works 
+		
 	}
+
+	DestroyTexture(texture);
+
 	Shutdown();
+
+	_CrtDumpMemoryLeaks();
 
 	return 0;
 }

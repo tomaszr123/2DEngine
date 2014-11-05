@@ -21,12 +21,18 @@
     <ClInclude Include="inc\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\CTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
