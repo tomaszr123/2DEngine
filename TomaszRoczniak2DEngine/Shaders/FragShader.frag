@@ -1,10 +1,10 @@
 #version 330
 
-in vec2 vtextureCoords;
+in vec2 textureCoords;
 
-uniform sampler2D diffuse;
+uniform sampler2D diffuseMap;
 
-int main()
+void main()
 {
-	gl_FragColor = texture(diffuse, vtextureCoords);
+	gl_FragColor = texture( diffuseMap, textureCoords );
 }

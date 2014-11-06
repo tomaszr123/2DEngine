@@ -55,3 +55,10 @@ void CTexture::DestroyTexture(unsigned int textureID)
 		}
 	}
 }
+
+unsigned int CTexture::LoadShader(const char *filename, unsigned int type)
+{
+
+
+	return 0;
+}

@@ -19,6 +19,8 @@
 #include <gl\glew.h>
 #include <gl\glfw.h>
 
+class CTexture;
+
 class FRAMEWORK2D CSpritebatch
 {
 public:

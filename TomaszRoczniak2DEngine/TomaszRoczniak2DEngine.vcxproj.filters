@@ -46,9 +46,6 @@
     <None Include="Shaders\FragShader.frag">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="Shaders\GeometryShader.geom">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Shaders\VertexShader.vert">
       <Filter>Resource Files</Filter>
     </None>

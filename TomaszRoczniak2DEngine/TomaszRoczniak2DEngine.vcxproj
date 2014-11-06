@@ -24,7 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\FragShader.frag" />
-    <None Include="Shaders\GeometryShader.geom" />
     <None Include="Shaders\VertexShader.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
