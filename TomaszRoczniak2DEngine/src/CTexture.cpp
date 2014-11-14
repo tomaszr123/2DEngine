@@ -1,6 +1,7 @@
 #include "CTexture.h"
 #include "SOIL.h"
 
+
 CTexture::CTexture()
 {
 	
@@ -54,11 +55,4 @@ void CTexture::DestroyTexture(unsigned int textureID)
 			break;
 		}
 	}
-}
-
-unsigned int CTexture::LoadShader(const char *filename, unsigned int type)
-{
-
-
-	return 0;
 }

@@ -5,7 +5,7 @@ layout( location = 1 ) in vec2 texCoords;
 
 out vec2 textureCoords;
 
-uniform mat4 projectionView;
+uniform mat3 projectionView;
 
 void main()
 {

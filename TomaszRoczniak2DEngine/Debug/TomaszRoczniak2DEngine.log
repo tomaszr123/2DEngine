@@ -1,7 +1,7 @@
-﻿Build started 05-Nov-14 10:36:12 PM.
+﻿Build started 14-Nov-14 1:07:13 PM.
      1>Project "B:\Users\tomasz\documents\visual studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\Libs\x86\glew\include /I.\Libs\x86\glfw\include /I.\inc\ /I.\bin\include\ /I.\Libs\soil\src /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TOMASZROCZNIAK2DENGINE_EXPORTS /D GLEW_STATIC /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Application.cpp src\CSpritebatch.cpp src\CTexture.cpp src\Framework.cpp
+         B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\Libs\x86\glew\include /I.\Libs\x86\glfw\include /I.\inc\ /I.\bin\include\ /I.\Libs\soil\src /I.\Libs\glm\glm /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TOMASZROCZNIAK2DENGINE_EXPORTS /D GLEW_STATIC /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Application.cpp src\CSpritebatch.cpp src\CTexture.cpp src\Framework.cpp
          Framework.cpp
          CTexture.cpp
      1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\ctexture.h(37): warning C4251: 'CTexture::m_textureMap' : class 'stdext::hash_map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CTexture'
@@ -41,4 +41,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.94
+Time Elapsed 00:00:02.41

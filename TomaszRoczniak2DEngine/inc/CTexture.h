@@ -35,9 +35,5 @@ public:
 private:
 	// Hash_map for all the Textures that will be created and stored
 	std::hash_map<const char* , unsigned int >m_textureMap;
-
-	// this function is to load the shaders in for all the textures
-	unsigned int LoadShader(const char *filename, unsigned int type);
-
 };
 #endif
