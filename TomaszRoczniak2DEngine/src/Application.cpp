@@ -4,6 +4,7 @@
 #include "Application.h"
 #include <assert.h>
 #include "CTexture.h"
+#include "CSpritebatch.h"
 
 // initialise static variables
 Application * Application::ms_singleton = nullptr;
@@ -29,14 +30,15 @@ Application::Application()
 	m_uiWinidowHeight = 600;
 	m_bFullScreen = false;
 	m_bFrameworkClosed = false;
-	m_bVSyncEnabled = false;
-
-	m_texture = new CTexture();
+	m_bVSyncEnabled = false;	
 }
 Application::~Application()
 {
 	delete m_texture;
+	delete m_spriteBatch;
+
 	m_texture = nullptr;
+	m_spriteBatch = nullptr;
 }
 bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_uiWindowHeight, bool a_bFullScreen /*= false*/)
 {
@@ -65,7 +67,11 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 		glfwTerminate();
 		return false;
 	}
-	
+
+	m_texture = new CTexture();
+	m_spriteBatch = new CSpritebatch(m_uiWindowWidth, m_uiWinidowHeight);
+	m_spriteBatch->Begin();
+
 	// sets the colour for the screen
 	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
 
@@ -75,8 +81,9 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0.0f, m_uiWindowWidth, m_uiWinidowHeight, 0.0f, 0.0f, 100.0f);
-
+	
 	//Enable some Blending.
+	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 
@@ -89,6 +96,7 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 // closes th window and shuts down the full framework 
 void Application::Shutdown()
 {
+	m_spriteBatch->End();
 	glfwCloseWindow();
 	glfwTerminate();
 }
@@ -145,4 +153,9 @@ unsigned int Application::CreateTexture(const char *filename)
 void Application::DestroyTexture(unsigned int textureID)
 {
 	m_texture->DestroyTexture(textureID);
+}
+
+void Application::DrawTexture(unsigned int textureID, float xPos, float yPos, float width /*= 0*/, float height /*= 0*/, float rotation /*= 0*/, float xOrigin /*= 0.5f*/, float yOrigin /*= 0.5f*/)
+{
+	m_spriteBatch->DrawTexture(textureID, xPos, yPos, width, height, rotation, xOrigin, yOrigin);
 }

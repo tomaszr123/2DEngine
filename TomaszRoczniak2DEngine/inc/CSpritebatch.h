@@ -15,11 +15,11 @@
 #define FRAMEWORK2D __declspec(dllexport)
 #endif
 
-#include <iostream>
 #include <glm.hpp>
+#include <ext.hpp>
 #include <gl\glew.h>
 #include <gl\glfw.h>
-#include <ext.hpp>
+
 
 class CTexture;
 
@@ -30,8 +30,8 @@ public:
 	~CSpritebatch();
 
 	void DrawTexture(unsigned int textureID, float xPos, float yPos, float width = 0, float height = 0, float rotation = 0, float xOrigin = 0.5f, float yOrigin = 0.5f);
-	void InitShader();
-
+	void Begin();
+	void End();
 private:
 
 	// this function is to load the shaders in for all the textures
@@ -41,22 +41,40 @@ private:
 								  unsigned int a_inputAttributeCount  = 0 , const char** a_inputAttributes = nullptr,
 								  unsigned int a_outputAttributeCount = 0 , const char** a_outputAttributes = nullptr );
 
-	// this function is to draw the shader 
-	void DrawShader();
 
-	glm::vec2 TransformPoint(const glm::vec2 &vect) const;
 
-	unsigned int m_windowWidth;
-	unsigned int m_windowHeight;
+	// doing a calculation for rotating the sprite
+	glm::vec2 RotateAround(glm::vec2 Position, float rotation);
+
+	glm::vec4 m_sorcRect;
+
+	unsigned int m_activeBuffer;
+
+protected:
+
+	// a struct for all the vertex and index
+	struct SBVertex
+	{
+		SBVertex() : pos(), texcoord(){}
+		SBVertex(const glm::vec2 &a_pos, const glm::vec2 &a_texcoord, unsigned int a_texture) : pos(a_pos), texcoord(a_texcoord)
+		{
+		
+		}
+		glm::vec2 pos;
+		glm::vec2 texcoord;
+	};
+
+	SBVertex m_vertex[4];
+	unsigned short m_indices[6];
+
+	int m_currentVert;
+    int m_currentIndex;
 
 	unsigned int m_uiProgramID;
 	unsigned int m_vao;
 	unsigned int m_vbo;
 	unsigned int m_ibo;
-
-	float m_vertex[4];
-	unsigned short m_indices[6];
-
+	
 	glm::mat4 m_projection;
 
 };

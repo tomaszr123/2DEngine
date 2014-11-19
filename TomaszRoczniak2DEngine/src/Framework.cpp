@@ -35,7 +35,7 @@ void DestroyTexture(unsigned int textureID)
 void DrawTexture(unsigned int textureID, float xPos, float yPos, float width /*= 0*/, float height /*= 0*/, 
 				 float rotation /*= 0*/, float xOrigin /*= 0.5f*/, float yOrigin /*= 0.5f*/)
 {
-	
+	Application::GetInstance()->DrawTexture(textureID, xPos, yPos, width, height, rotation, xOrigin, yOrigin);
 }
 
 // checks if a key is down or not 

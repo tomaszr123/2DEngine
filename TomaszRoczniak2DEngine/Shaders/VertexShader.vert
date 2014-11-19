@@ -10,5 +10,5 @@ uniform mat3 projectionView;
 void main()
 {
 	textureCoords = texCoords;
-	gl_Position = projectionView * vec4(position,1);
-}
+	gl_Position = projectionView * vec4(position.x, position.y, 0 ,1);
+};

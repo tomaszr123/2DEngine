@@ -20,6 +20,7 @@
 #include "Framework.h"
 
 class CTexture;
+class CSpritebatch;
 
 class FRAMEWORK2D Application
 {
@@ -63,6 +64,9 @@ public:
 	unsigned int CreateTexture(const char *filename);
 	void DestroyTexture(unsigned int textureID);
 
+
+	void DrawTexture(unsigned int textureID, float xPos, float yPos, float width = 0, float height = 0, float rotation = 0, float xOrigin = 0.5f, float yOrigin = 0.5f);
+
 private:
 
 	// singleton ptr;
@@ -87,7 +91,7 @@ private:
 	bool m_bVSyncEnabled;
 
 	CTexture *m_texture;
-	
+	CSpritebatch* m_spriteBatch;
 };
 ////////////////////////////////////////////////////////////
 #endif // APPLICATION_H_

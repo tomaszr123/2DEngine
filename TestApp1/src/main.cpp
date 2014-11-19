@@ -13,7 +13,8 @@ int main(int argc, char **argv)
 	while(FrameworkUpdate())
 	{
 		ClearScreen();
-		
+
+		DrawTexture(texture, 10, 10, 32, 32);
 	}
 
 	DestroyTexture(texture);
