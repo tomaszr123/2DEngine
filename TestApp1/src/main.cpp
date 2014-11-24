@@ -4,7 +4,6 @@
 
 unsigned int texture;
 
-
 int main(int argc, char **argv)
 {
 	Initialise(800, 600, false);
@@ -14,7 +13,7 @@ int main(int argc, char **argv)
 	{
 		ClearScreen();
 
-		DrawTexture(texture, 10, 10, 32, 32);
+		DrawTexture(texture, 100, 100, 128, 128);
 	}
 
 	DestroyTexture(texture);

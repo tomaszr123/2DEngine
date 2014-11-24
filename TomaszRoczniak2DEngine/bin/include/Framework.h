@@ -98,30 +98,6 @@ typedef enum
 	KEY_LAST       = KEY_MENU
 };
 ///////////////////////////////////////////////////////////
-//Struct for the Colour
-///////////////////////////////////////////////////////////
-struct SColour
-{
-	SColour() {}
-	SColour(unsigned int a_iColour) : colour(a_iColour) { }
-	SColour(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
-	{
-		colours.r = r;
-		colours.g = g;
-		colours.b = b;
-		colours.a = a;
-	}
-
-	union
-	{
-		unsigned int colour;
-		struct SColours
-		{
-			unsigned char a, r, g, b;
-		} colours;
-	};
-};
-///////////////////////////////////////////////////////////
 //	Call this function to Initialise the Framework and for 
 //	it to create a window
 ///////////////////////////////////////////////////////////
@@ -143,7 +119,6 @@ FRAMEWORK2D void	ClearScreen();
 ///////////////////////////////////////////////////////////
 FRAMEWORK2D unsigned int CreateTexture(const char *filename);
 FRAMEWORK2D void DestroyTexture(unsigned int textureID);
-// in a spriteBathch class 
 FRAMEWORK2D void DrawTexture(unsigned int textureID, float xPos, float yPos, float width = 0, float height = 0, float rotation = 0, float xOrigin = 0.5f, float yOrigin = 0.5f);
 ///////////////////////////////////////////////////////////
 //	Draw a Basic String to the screen using a font

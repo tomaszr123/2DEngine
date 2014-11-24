@@ -56,7 +56,7 @@ protected:
 	struct SBVertex
 	{
 		SBVertex() : pos(), texcoord(){}
-		SBVertex(const glm::vec2 &a_pos, const glm::vec2 &a_texcoord, unsigned int a_texture) : pos(a_pos), texcoord(a_texcoord)
+		SBVertex(const glm::vec2 &a_pos, const glm::vec2 &a_texcoord) : pos(a_pos), texcoord(a_texcoord)
 		{
 		
 		}

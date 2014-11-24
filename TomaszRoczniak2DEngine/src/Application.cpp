@@ -73,19 +73,20 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 	m_spriteBatch->Begin();
 
 	// sets the colour for the screen
-	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
 	// this framework will only be used in orthographic projection
 	// we will set this up only to use that view
 	// this means everything will be done 2D
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0.0f, m_uiWindowWidth, m_uiWinidowHeight, 0.0f, 0.0f, 100.0f);
+	//glMatrixMode(GL_PROJECTION);
+	//glLoadIdentity();
+	//glOrtho(0.0f, m_uiWindowWidth, m_uiWinidowHeight, 0.0f, 0.0f, 100.0f);
 	
 	//Enable some Blending.
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+	glDisable(GL_CULL_FACE);
 
 	// enable for 3D rendering, not needed for 2D rendering
 	//		glEnable(GL_DEPTH);
@@ -131,7 +132,7 @@ bool Application::FrameworkUpdate()
 // clears the back buffer
 void Application::ClearScreen()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 float Application::GetDeltaTime()

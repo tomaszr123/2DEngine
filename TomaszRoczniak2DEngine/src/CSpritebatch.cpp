@@ -6,7 +6,7 @@
 const char * gs_vertexShader =
 " \
 #version 330 \r\n\
-in vec3 position; \
+in vec2 position; \
 in vec2 texCoords; \
 \
 uniform mat4 projectionView; \
@@ -27,13 +27,15 @@ const char * gs_fragmentShader =
 \
 in vec2 textureCoords; \
 \
-uniform sampler2D	diffuseMap; \
+uniform sampler2D diffuseMap; \
+out vec4 fragColor; \
 \
 void main() \
 { \
     vec4 color = texture2D(diffuseMap, textureCoords); \
-	\
-}";
+	fragColor = color;\
+} \
+";
 
 CSpritebatch::CSpritebatch(unsigned int windowwidth, unsigned int windowheight)
 {
@@ -121,35 +123,32 @@ void CSpritebatch::DrawTexture(unsigned int textureID, float xPos, float yPos, f
 	glm::vec2 position;
 	glm::vec2 origin;
 	glm::vec2 size;
-
+	
 	position.x	= xPos;		position.y	= yPos;
 	origin.x	= xOrigin;	origin.y	= yOrigin;
 	size.x		= width;	size.y		= height;
 
-	glm::vec2 tl(0.0f,0.0f);
-	glm::vec2 tr(1.0f,0.0f);
-	glm::vec2 br(1.0f,1.0f);
-	glm::vec2 bl(0.0f,1.0f);
+	m_sorcRect = glm::vec4(size.x * origin.x, size.y * origin.y, 0, 0);
 
-	tl = RotateAround( (tl *size) - (size * origin), rotation) + position;
-	tr = RotateAround( (tr *size) - (size * origin), rotation) + position;
-	br = RotateAround( (br *size) - (size * origin), rotation) + position;
-	bl = RotateAround( (bl *size) - (size * origin), rotation) + position;
-
+	glm::vec2 tl = (glm::vec2(0.0f,0.0f) - origin) * size + position;
+	glm::vec2 tr = (glm::vec2(1.0f,0.0f) - origin) * size + position;
+	glm::vec2 br = (glm::vec2(1.0f,1.0f) - origin) * size + position;
+	glm::vec2 bl = (glm::vec2(0.0f,1.0f) - origin) * size + position;
+   
 	int index = m_currentVert;
 
-	m_vertex[m_currentVert++] = SBVertex(tl, glm::vec2(m_sorcRect.x, m_sorcRect.y), textureID);
-	m_vertex[m_currentVert++] = SBVertex(tr, glm::vec2(m_sorcRect.x + m_sorcRect.z, m_sorcRect.y), textureID);
-	m_vertex[m_currentVert++] = SBVertex(br, glm::vec2(m_sorcRect.x + m_sorcRect.z, m_sorcRect.y + m_sorcRect.w), textureID);
-	m_vertex[m_currentVert++] = SBVertex(bl, glm::vec2(m_sorcRect.x, m_sorcRect.y + m_sorcRect.w), textureID);
-
-	m_indices[m_currentIndex++] = (index + 0);
-	m_indices[m_currentIndex++] = (index + 2);
-	m_indices[m_currentIndex++] = (index + 3);
+	m_vertex[m_currentVert++] = SBVertex(tl,	glm::vec2(0.0f,1.0f));
+	m_vertex[m_currentVert++] = SBVertex(tr,	glm::vec2(1.0f,1.0f));
+	m_vertex[m_currentVert++] = SBVertex(br,	glm::vec2(1.0f,0.0f));
+	m_vertex[m_currentVert++] = SBVertex(bl,	glm::vec2(0.0f,0.0f));
 
 	m_indices[m_currentIndex++] = (index + 0);
 	m_indices[m_currentIndex++] = (index + 1);
 	m_indices[m_currentIndex++] = (index + 2);
+
+	m_indices[m_currentIndex++] = (index + 0);
+	m_indices[m_currentIndex++] = (index + 2);
+	m_indices[m_currentIndex++] = (index + 3);
 
 	glBindVertexArray(m_vao);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
@@ -157,18 +156,29 @@ void CSpritebatch::DrawTexture(unsigned int textureID, float xPos, float yPos, f
 
 	glBufferData(GL_ARRAY_BUFFER, m_currentVert * sizeof(SBVertex), m_vertex, GL_STATIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_currentIndex * sizeof(unsigned short), m_indices, GL_STATIC_DRAW);
-          
+
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
-	glEnableVertexAttribArray(2);
-          
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(SBVertex), (char *)0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(SBVertex), (char *)12);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(SBVertex), (char *)28);
+
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(SBVertex), 0);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(SBVertex), (char *)8);
+	
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+
+	glUseProgram(m_uiProgramID);  
+
+	int location = glGetUniformLocation(m_uiProgramID,"diffuseMap");
+	glUniform1i(location, 0);
+
+	location = glGetUniformLocation(m_uiProgramID, "projectionView");
+	glUniform4fv(location, 1, glm::value_ptr(m_projection));
+
 
     glDrawElements(GL_TRIANGLES, m_currentIndex, GL_UNSIGNED_SHORT, 0);
-
-	glBindVertexArray(0);
+	
+    
+	//glBindTexture(textureID, 0);
 
 	m_currentIndex = 0;
     m_currentVert = 0;
