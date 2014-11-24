@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="bin\include\Framework.h" />
     <ClInclude Include="inc\Application.h" />
+    <ClInclude Include="inc\CFont.h" />
     <ClInclude Include="inc\CSpritebatch.h" />
     <ClInclude Include="inc\CTexture.h" />
   </ItemGroup>
