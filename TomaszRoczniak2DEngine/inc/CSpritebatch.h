@@ -22,6 +22,7 @@
 
 
 class CTexture;
+class CFont;
 
 class FRAMEWORK2D CSpritebatch
 {
@@ -32,11 +33,13 @@ public:
 	void DrawTexture(unsigned int textureID, float xPos, float yPos, float width = 0, float height = 0, float rotation = 0, float xOrigin = 0.5f, float yOrigin = 0.5f);
 	void Begin();
 	void End();
+
+	// Draw a string 
+	void DrawString(CFont* font, unsigned int fontID, const char* text, float xPos, float yPos);
 private:
 
 	// this function is to load the shaders in for all the textures
 	unsigned int LoadShader(const char *filename, unsigned int type);
-	unsigned char* fileToBuffer(const char* sPath);
 	unsigned int CreateProgram(unsigned int a_vertexShader, unsigned int a_geometryShader, unsigned int a_fragmentShader,
 								  unsigned int a_inputAttributeCount  = 0 , const char** a_inputAttributes = nullptr,
 								  unsigned int a_outputAttributeCount = 0 , const char** a_outputAttributes = nullptr );

@@ -44,13 +44,8 @@
     <ClCompile Include="src\CSpritebatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Shaders\FragShader.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Shaders\VertexShader.vert">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClCompile Include="src\CFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,6 +5,22 @@
 #include <assert.h>
 #include "CTexture.h"
 #include "CSpritebatch.h"
+#include "CFont.h"
+
+void APIENTRY glErrorCallback(GLenum source,
+	GLenum type, GLuint id, GLenum severity,
+	GLsizei length, const GLchar* message,
+	GLvoid* userParam)
+{
+	(void)source;
+	(void)type;
+	(void)id;
+	(void)severity;
+	(void)length;
+	(void)userParam;
+
+	printf((std::string(message) + std::string("\n\n")).c_str());
+}
 
 // initialise static variables
 Application * Application::ms_singleton = nullptr;
@@ -37,8 +53,8 @@ Application::~Application()
 	delete m_texture;
 	delete m_spriteBatch;
 
-	m_texture = nullptr;
-	m_spriteBatch = nullptr;
+	m_texture		= nullptr;
+	m_spriteBatch	= nullptr;
 }
 bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_uiWindowHeight, bool a_bFullScreen /*= false*/)
 {
@@ -62,12 +78,25 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 	// enable / disable vSync
 	EnableVSync(m_bVSyncEnabled);
 
+	glewExperimental = true;
 	if(glewInit() != GLEW_OK)
 	{
 		glfwTerminate();
 		return false;
 	}
 
+	// Setup OpenGL error callbacks if supported
+	if (glewIsSupported("GL_ARB_debug_output"))
+	{
+		glDebugMessageCallbackARB(glErrorCallback, nullptr);
+		glEnable(GL_DEBUG_OUTPUT);
+	}
+	else
+	{
+		printf("OpenGL error callbacks are not supported");
+	}
+
+	m_font = new CFont();
 	m_texture = new CTexture();
 	m_spriteBatch = new CSpritebatch(m_uiWindowWidth, m_uiWinidowHeight);
 	m_spriteBatch->Begin();
@@ -75,22 +104,11 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 	// sets the colour for the screen
 	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
-	// this framework will only be used in orthographic projection
-	// we will set this up only to use that view
-	// this means everything will be done 2D
-	//glMatrixMode(GL_PROJECTION);
-	//glLoadIdentity();
-	//glOrtho(0.0f, m_uiWindowWidth, m_uiWinidowHeight, 0.0f, 0.0f, 100.0f);
-	
 	//Enable some Blending.
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 	glDisable(GL_CULL_FACE);
-
-	// enable for 3D rendering, not needed for 2D rendering
-	//		glEnable(GL_DEPTH);
-	//		glDepthFunc(GL_LEQUAL);
 
 	return true;
 }
@@ -100,6 +118,9 @@ void Application::Shutdown()
 	m_spriteBatch->End();
 	glfwCloseWindow();
 	glfwTerminate();
+	
+	delete m_font;
+	m_font = nullptr;
 }
 
 void Application::EnableVSync(bool a_bEnabled)
@@ -145,7 +166,7 @@ float Application::GetDeltaTime()
 
 	return gametime.DeltaTime;
 }
-
+// Create and Draw a Texture to the screen also Destroy a Texture functions
 unsigned int Application::CreateTexture(const char *filename)
 {
 	return m_texture->CreateTexture(filename);
@@ -159,4 +180,19 @@ void Application::DestroyTexture(unsigned int textureID)
 void Application::DrawTexture(unsigned int textureID, float xPos, float yPos, float width /*= 0*/, float height /*= 0*/, float rotation /*= 0*/, float xOrigin /*= 0.5f*/, float yOrigin /*= 0.5f*/)
 {
 	m_spriteBatch->DrawTexture(textureID, xPos, yPos, width, height, rotation, xOrigin, yOrigin);
+}
+
+// Create, Draw and Destroy a Font Function
+unsigned int Application::CreateFont(const char* filename, unsigned int size)
+{
+	return m_font->CreateFont(filename, size);
+}
+void Application::DestroyFont(unsigned int fontID)
+{
+	m_font->DestroyFont(fontID);
+}
+
+void Application::DrawFont(unsigned int fontID, const char* text, float xPos, float yPos)
+{
+	m_spriteBatch->DrawString(m_font,fontID, text, xPos, yPos);
 }

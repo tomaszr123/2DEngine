@@ -19,17 +19,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\CFont.cpp" />
     <ClCompile Include="src\CSpritebatch.cpp" />
     <ClCompile Include="src\CTexture.cpp" />
     <ClCompile Include="src\Framework.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Shaders\FragShader.frag">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </None>
-    <None Include="Shaders\VertexShader.vert">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </None>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9D02536E-1E09-42C0-B308-B0D2182B7E76}</ProjectGuid>
@@ -77,13 +70,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;TOMASZROCZNIAK2DENGINE_EXPORTS;GLEW_STATIC;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\Libs\x86\glew\include;.\Libs\x86\glfw\include;.\inc\;.\bin\include\;.\Libs\soil\src;.\Libs\glm\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Libs\x86\glew\include;.\Libs\x86\glfw\include;.\inc\;.\bin\include\;.\Libs\soil\src;.\Libs\glm\glm;.\inc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\Libs\x86\glew\lib;.\Libs\x86\glfw\lib-msvc100;.\Libs;.\Debug;.\Libs\soil\lib\vs2012;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenGL32.lib;glfw.lib;glew32s.lib;glu32.lib;SOIL_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenGL32.lib;glfw.lib;glew32s.lib;glu32.lib;SOIL_d.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

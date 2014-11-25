@@ -2,7 +2,6 @@
 #include <iostream>
 #include "Application.h"
 
-
 int Initialise(int a_iWindowWidth, int a_iWindowHeight, bool a_bFullScreen /*= false*/, const char* a_pWWindowTiltle /*= nullptr*/)
 {
 	Application::CreateSingleton();
@@ -12,6 +11,7 @@ int Initialise(int a_iWindowWidth, int a_iWindowHeight, bool a_bFullScreen /*= f
 void Shutdown()
 {
 	Application::GetInstance()->Shutdown();
+	Application::DestroySingleton();
 }
 // checks if the framework is closed or not 
 bool FrameworkUpdate()
@@ -38,6 +38,21 @@ void DrawTexture(unsigned int textureID, float xPos, float yPos, float width /*=
 	Application::GetInstance()->DrawTexture(textureID, xPos, yPos, width, height, rotation, xOrigin, yOrigin);
 }
 
+// Create you font
+unsigned int CreateFont(const char *filename, unsigned int size)
+{
+	return Application::GetInstance()->CreateFont(filename, size);
+}
+// Destroy a font 
+void DestroyFont(unsigned int fontID)
+{
+	Application::GetInstance()->DestroyFont(fontID);
+}
+// Draw the font onto the screen
+void DrawString(unsigned int fontID, const char* text, float xPos, float yPos)
+{
+	Application::GetInstance()->DrawFont(fontID, text, xPos, yPos);
+}
 // checks if a key is down or not 
 bool IsKeyDown(int a_key)
 {

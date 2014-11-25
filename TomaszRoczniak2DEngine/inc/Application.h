@@ -21,6 +21,7 @@
 
 class CTexture;
 class CSpritebatch;
+class CFont;
 
 class FRAMEWORK2D Application
 {
@@ -63,9 +64,14 @@ public:
 	// Creates the texture
 	unsigned int CreateTexture(const char *filename);
 	void DestroyTexture(unsigned int textureID);
-
-
+	// Draws a Texture to the screen 
 	void DrawTexture(unsigned int textureID, float xPos, float yPos, float width = 0, float height = 0, float rotation = 0, float xOrigin = 0.5f, float yOrigin = 0.5f);
+
+	// Creates a Font and Destroys a Font
+	unsigned int CreateFont(const char* filename, unsigned int size);
+	void DestroyFont(unsigned int fontID);
+	// Draws the font to the screen
+	void DrawFont(unsigned int fontID, const char* text, float xPos, float yPos);
 
 private:
 
@@ -90,6 +96,8 @@ private:
 	// a bool  for vsync
 	bool m_bVSyncEnabled;
 
+	// Pointers to the classes that have been created so then everything works 
+	CFont *m_font;
 	CTexture *m_texture;
 	CSpritebatch* m_spriteBatch;
 };
