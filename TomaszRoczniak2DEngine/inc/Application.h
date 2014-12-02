@@ -21,7 +21,7 @@
 
 class CTexture;
 class CSpritebatch;
-class CFont;
+class CFontManager;
 
 class FRAMEWORK2D Application
 {
@@ -68,10 +68,10 @@ public:
 	void DrawTexture(unsigned int textureID, float xPos, float yPos, float width = 0, float height = 0, float rotation = 0, float xOrigin = 0.5f, float yOrigin = 0.5f);
 
 	// Creates a Font and Destroys a Font
-	unsigned int CreateFont(const char* filename, unsigned int size);
+	void CreateFont();
 	void DestroyFont(unsigned int fontID);
 	// Draws the font to the screen
-	void DrawFont(unsigned int fontID, const char* text, float xPos, float yPos);
+	void DrawFont(const char* text, float xPos, float yPos, float size);
 
 private:
 
@@ -97,7 +97,7 @@ private:
 	bool m_bVSyncEnabled;
 
 	// Pointers to the classes that have been created so then everything works 
-	CFont *m_font;
+	CFontManager *m_font;
 	CTexture *m_texture;
 	CSpritebatch* m_spriteBatch;
 };

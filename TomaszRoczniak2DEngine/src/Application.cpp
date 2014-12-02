@@ -5,7 +5,7 @@
 #include <assert.h>
 #include "CTexture.h"
 #include "CSpritebatch.h"
-#include "CFont.h"
+#include "CFontManager.h"
 
 void APIENTRY glErrorCallback(GLenum source,
 	GLenum type, GLuint id, GLenum severity,
@@ -96,7 +96,10 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 		printf("OpenGL error callbacks are not supported");
 	}
 
-	m_font = new CFont();
+	const char* fontName = "./arial.png";
+	const char* xmlName = "./arial.xml";
+
+	m_font = new CFontManager();
 	m_texture = new CTexture();
 	m_spriteBatch = new CSpritebatch(m_uiWindowWidth, m_uiWinidowHeight);
 	m_spriteBatch->Begin();
@@ -183,16 +186,16 @@ void Application::DrawTexture(unsigned int textureID, float xPos, float yPos, fl
 }
 
 // Create, Draw and Destroy a Font Function
-unsigned int Application::CreateFont(const char* filename, unsigned int size)
+void Application::CreateFont()
 {
-	return m_font->CreateFont(filename, size);
+	m_font->LoadFont("arial.png", "arial.xml");
 }
 void Application::DestroyFont(unsigned int fontID)
 {
-	m_font->DestroyFont(fontID);
+	//m_font->DestroyFont(fontID);
 }
 
-void Application::DrawFont(unsigned int fontID, const char* text, float xPos, float yPos)
+void Application::DrawFont(const char* text, float xPos, float yPos, float size)
 {
-	m_spriteBatch->DrawString(m_font,fontID, text, xPos, yPos);
+	m_font->DrawString(text, xPos, yPos, size);
 }

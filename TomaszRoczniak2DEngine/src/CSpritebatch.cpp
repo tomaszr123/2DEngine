@@ -178,69 +178,6 @@ void CSpritebatch::DrawTexture(unsigned int textureID, float xPos, float yPos, f
     m_currentVert = 0;
 }
 
-void CSpritebatch::DrawString(CFont* font, unsigned int fontID, const char* text, float xPos, float yPos)
-{
-	// making the single floats into vector 2
-	glm::vec2 position;
-	glm::vec2 origin;
-	glm::vec2 size;
-	
-	position.x	= xPos;		position.y	= yPos;
-	origin.x	= 0.0f;		origin.y	= 0.0f;
-
-	size.x		= font->GetFontWidth((char)text);	size.y	= font->GetFontHeight(fontID);
-
-	glm::vec2 tl = (glm::vec2(0.0f,0.0f) - origin) * size + position;
-	glm::vec2 tr = (glm::vec2(1.0f,0.0f) - origin) * size + position;
-	glm::vec2 br = (glm::vec2(1.0f,1.0f) - origin) * size + position;
-	glm::vec2 bl = (glm::vec2(0.0f,1.0f) - origin) * size + position;
-   
-	int index = m_currentVert;
-
-	m_vertex[m_currentVert++] = SBVertex(tl,	glm::vec2(0.0f,1.0f));
-	m_vertex[m_currentVert++] = SBVertex(tr,	glm::vec2(1.0f,1.0f));
-	m_vertex[m_currentVert++] = SBVertex(br,	glm::vec2(1.0f,0.0f));
-	m_vertex[m_currentVert++] = SBVertex(bl,	glm::vec2(0.0f,0.0f));
-
-	m_indices[m_currentIndex++] = (index + 0);
-	m_indices[m_currentIndex++] = (index + 1);
-	m_indices[m_currentIndex++] = (index + 2);
-
-	m_indices[m_currentIndex++] = (index + 0);
-	m_indices[m_currentIndex++] = (index + 2);
-	m_indices[m_currentIndex++] = (index + 3);
-
-	glBufferData(GL_ARRAY_BUFFER, m_currentVert * sizeof(SBVertex), m_vertex, GL_STATIC_DRAW);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_currentIndex * sizeof(unsigned short), m_indices, GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
-
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(SBVertex), 0);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(SBVertex), (char *)8);
-	
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, fontID);
-
-	glUseProgram(m_uiProgramID);  
-
-	int location = glGetUniformLocation(m_uiProgramID,"diffuseMap");
-	glUniform1i(location, 0);
-
-	location = glGetUniformLocation(m_uiProgramID, "projectionView");
-	glUniform4fv(location, 1, glm::value_ptr(m_projection));
-
-    glDrawElements(GL_TRIANGLES, m_currentIndex, GL_UNSIGNED_SHORT, 0);
-
-	glBindTexture(fontID, 0);
-
-	m_currentIndex = 0;
-    m_currentVert = 0;
-
-	font->DrawFont(fontID, text, xPos,yPos);
-
-}
-
 glm::vec2 CSpritebatch::RotateAround(glm::vec2 Position, float rotation)
 {
     glm::vec2 newPos = glm::vec2();

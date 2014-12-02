@@ -44,6 +44,11 @@ unsigned int CTexture::CreateTexture(const char* filename)
 	return texture;
 }
 
+//unsigned int CTexture::LoadTexture(const char *filename, unsigned int* width, unsigned int* height)
+//{
+//	return 0;
+//}
+
 void CTexture::DestroyTexture(unsigned int textureID)
 {
 	for(auto iter = m_textureMap.begin(); iter != m_textureMap.end(); iter++)

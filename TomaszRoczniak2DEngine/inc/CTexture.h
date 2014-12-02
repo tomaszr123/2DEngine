@@ -29,6 +29,9 @@ public:
 	// create the texture and inserts it into the hashmap
 	unsigned int CreateTexture(const char* filename);
 
+	// this is to load in a image of the font
+	//static unsigned int LoadTexture(const char *filename, unsigned int* width, unsigned int* height);
+	
 	// destoys the texture and removes it out of the hash map
 	void DestroyTexture(unsigned int textureID);
 
