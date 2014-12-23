@@ -123,9 +123,9 @@ FRAMEWORK2D void DrawTexture(unsigned int textureID, float xPos, float yPos, flo
 ///////////////////////////////////////////////////////////
 //	Draw a Basic String to the screen using a font
 ///////////////////////////////////////////////////////////
-FRAMEWORK2D unsigned int CreateFont(const char *filename, unsigned int size);
+FRAMEWORK2D void CreateFont();
 FRAMEWORK2D void DestroyFont(unsigned int fontID);
-FRAMEWORK2D void DrawString(unsigned int fontID, const char *text, float xPos, float yPos);
+FRAMEWORK2D void DrawString(const char *text, float xPos, float yPos, float size);
 FRAMEWORK2D void MeasureString( unsigned int fontID, const char *text, float &outWidth, float outHeight);
 //FRAMEWORK2D void DrawStringSpecial(unsigned int fontID, const char *text, float xPos, float yPos); // calculates tab and other special characters
 ///////////////////////////////////////////////////////////

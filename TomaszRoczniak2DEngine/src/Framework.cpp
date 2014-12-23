@@ -39,9 +39,9 @@ void DrawTexture(unsigned int textureID, float xPos, float yPos, float width /*=
 }
 
 // Create you font
-unsigned int CreateFont(const char *filename, unsigned int size)
+void CreateFont()
 {
-	return Application::GetInstance()->CreateFont(filename, size);
+	Application::GetInstance()->CreateFont();
 }
 // Destroy a font 
 void DestroyFont(unsigned int fontID)
@@ -49,9 +49,9 @@ void DestroyFont(unsigned int fontID)
 	Application::GetInstance()->DestroyFont(fontID);
 }
 // Draw the font onto the screen
-void DrawString(unsigned int fontID, const char* text, float xPos, float yPos)
+void DrawString(const char* text, float xPos, float yPos, float size)
 {
-	Application::GetInstance()->DrawFont(fontID, text, xPos, yPos);
+	Application::GetInstance()->DrawFont(text, xPos, yPos, size);
 }
 // checks if a key is down or not 
 bool IsKeyDown(int a_key)

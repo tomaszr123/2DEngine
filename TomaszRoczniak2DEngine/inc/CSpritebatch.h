@@ -34,8 +34,8 @@ public:
 	void Begin();
 	void End();
 
-	// Draw a string 
-	void DrawString(CFont* font, unsigned int fontID, const char* text, float xPos, float yPos);
+	//// Draw a string 
+	//void DrawString(CFont* font, unsigned int fontID, const char* text, float xPos, float yPos);
 private:
 
 	// this function is to load the shaders in for all the textures
