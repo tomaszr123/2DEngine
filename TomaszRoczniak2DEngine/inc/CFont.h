@@ -1,98 +1,83 @@
-////////////////////////////////////////////////////////////
-//	Creator: Tomasz Roczniak
-//	Date: 24-11-2014
-//	Description:This class is so you can Draw Font to 
-//				 the screen.
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+//	
+//	Author:			Adam Coulson
+//	Date:			
+//	Description:	
+//	
+////////////////////////////////////////////////////////////////////////////////////////////
 
+#pragma once
 
-#ifndef CFONT_H_
-#define CFONT_H_
+#ifndef CFONT_H
+#define CFONT_H
 
-#ifndef FRAMEWORK2D_EXPORT
-#define FRAMEWORK2D __declspec(dllexport)
-#else 
-#define FRAMEWORK2D __declspec(dllexport)
-#endif
+#include <glm.hpp>
+#include <ext.hpp>
 
-#include "include\ft2build.h"
+class CCharacter;
 
-#include "include/freetype.h"
-#include "include/ftglyph.h"
-#include "include/ftoutln.h"
-#include "include/fttrigon.h"
-
-
-#include <gl/glew.h>
-#include <gl\GL.h>
-#include <gl\GLU.h>
-
-#include <vector>
-#include <string>
-
-#include FT_FREETYPE_H
-
-enum 
-{
-	AL_LEFT = 0,
-	AL_CENTRE,
-	AL_RIGHT
-};
-
-enum
-{
-	AL_TOP = 0,
-	AL_BOTTOM,
-	AL_MIDDLE
-};
-
-class FRAMEWORK2D CFont
+class CFont
 {
 public:
-	CFont();
+	
+	CFont( const char* a_cXmlName );
 	~CFont();
+	
+	void DrawString( const char* a_String, float a_fPosX, float a_fPosY, float a_fSize );
 
-	unsigned int CreateFont(const char* filename, unsigned int size);
- 	void DrawFont(unsigned int fontID, std::string text, float xPos, float yPos);
-	void DestroyFont(unsigned int fontID);
-	//void MessureFontString();
-
-	int GetFontHeight(unsigned int fontID)const;
-	int GetFontWidth(char ch)const
-	{
-		for(char i = 0; i < m_Fonts.size(); ++i)
-		{
-			if(ch == (char)m_Fonts[i]->m_Filename)
-				return i;
-		}
-	}
-
-	unsigned int GetFont(char ch) const {return m_sFont.m_uiTexture[ch];}
-	int GetCharBaseLineOffset(char ch)const{return m_iCharBaseLineOffset[ch];}
+protected:
 private:
+	
+	void			Begin();
+	void			End();
 
-	struct sFont_Data
-	{
-		char* m_Filename;
-		unsigned int m_uiSize;
-		unsigned int *m_uiTexture;
-		unsigned int m_uiFontBase;
-		bool m_IsAlive;
-	};
+	char			m_Path[128];
+	char			m_XmlName[128];
+	char			m_TextureName[128];
+	unsigned int	m_FontTexture;
+	
+	CCharacter*		m_Characters[256];
 
-	sFont_Data m_sFont;
-
-	bool m_bLoaded;
-	int m_iCharWidth[128];
-	int m_iCharBaseLineOffset[128];
-	int m_iVAlign;
-	int m_ihAlign;
-
-	void buildFont(FT_Face face, char ch, unsigned int fontID);
-
-	int nextPower2(int a);
-
-	std::vector<sFont_Data*> m_Fonts;
+	int				m_Start;
+	int				m_End;
+	int				m_LineSpacing;
+	int				m_Assent;
+	int				m_Size;
 
 };
-#endif //_CFONT_H_
+
+#endif
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//	
+//	Author:			Adam Coulson
+//	Date:			
+//	Description:	
+//	
+////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CCHARATER_H
+#define CCHARATER_H
+
+class CCharacter
+{
+public:
+	
+	CCharacter( float a_fAdvance, float a_fMinU, float a_fMinV, float a_fMaxU, float a_fMaxV );
+	~CCharacter();
+
+	float GetAdvance( float a_fSize );
+	void Draw( float a_fPosX, float a_fPosY, float a_fSizeX, float a_fSizeY, float a_fColour = 1.0f );
+
+protected:
+private:
+
+	float m_fAdvancePercent;
+	
+	int		m_iPosition[8];
+	float	m_fUV[8];
+	float	m_fColour[16];
+
+};
+
+#endif
