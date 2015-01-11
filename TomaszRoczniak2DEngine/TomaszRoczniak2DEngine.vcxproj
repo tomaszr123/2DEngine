@@ -14,19 +14,15 @@
     <ClInclude Include="bin\include\Framework.h" />
     <ClInclude Include="inc\Application.h" />
     <ClInclude Include="inc\CFont.h" />
-    <ClInclude Include="inc\CFontManager.h" />
     <ClInclude Include="inc\CSpritebatch.h" />
     <ClInclude Include="inc\CTexture.h" />
-    <ClInclude Include="inc\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\CFont.cpp" />
-    <ClCompile Include="src\CFontManager.cpp" />
+    <ClCompile Include="src\CFont..cpp" />
     <ClCompile Include="src\CSpritebatch.cpp" />
     <ClCompile Include="src\CTexture.cpp" />
     <ClCompile Include="src\Framework.cpp" />
-    <ClCompile Include="src\tinyxml2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9D02536E-1E09-42C0-B308-B0D2182B7E76}</ProjectGuid>

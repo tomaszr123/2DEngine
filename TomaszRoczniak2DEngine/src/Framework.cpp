@@ -39,9 +39,9 @@ void DrawTexture(unsigned int textureID, float xPos, float yPos, float width /*=
 }
 
 // Create you font
-void CreateFont()
+unsigned int CreateFont()
 {
-	Application::GetInstance()->CreateFont();
+	return Application::GetInstance()->CreateFont();
 }
 // Destroy a font 
 void DestroyFont(unsigned int fontID)

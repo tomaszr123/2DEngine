@@ -2,7 +2,6 @@
 #include "CSpritebatch.h"
 #define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
-#include "CFont.h"
 
 const char * gs_vertexShader =
 " \

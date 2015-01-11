@@ -1,84 +1,52 @@
-﻿Build started 2/12/2014 3:16:22 PM.
-     1>Project "C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 11-Jan-15 10:37:21 PM.
+     1>Project "B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\Libs\x86\glew\include /I.\Libs\x86\glfw\include /I.\inc\ /I.\bin\include\ /I.\Libs\soil\src /I.\Libs\glm\glm /I.\inc\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TOMASZROCZNIAK2DENGINE_EXPORTS /D GLEW_STATIC /D _CRT_SECURE_NO_DEPRECATE /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Application.cpp src\CFont.cpp src\CFontManager.cpp src\CSpritebatch.cpp src\CTexture.cpp src\Framework.cpp src\tinyxml2.cpp
-         tinyxml2.cpp
-         Framework.cpp
-         CTexture.cpp
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\ctexture.h(40): warning C4251: 'CTexture::m_textureMap' : class 'stdext::hash_map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CTexture'
+         B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\Libs\x86\glew\include /I.\Libs\x86\glfw\include /I.\inc\ /I.\bin\include\ /I.\Libs\soil\src /I.\Libs\glm\glm /I.\inc\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TOMASZROCZNIAK2DENGINE_EXPORTS /D GLEW_STATIC /D _CRT_SECURE_NO_DEPRECATE /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\CFont..cpp
+         CFont..cpp
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\cfont.h(17): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\cfont.h(18): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\cfont.h(50): warning C4251: 'CFont::m_textures' : class 'std::vector<_Ty>' needs to have dll-interface to be used by clients of class 'CFont'
+                 with
+                 [
+                     _Ty=CTexture *
+                 ]
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\cfont.h(53): warning C4251: 'CFont::m_charSet' : class 'std::map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CFont'
+                 with
+                 [
+                     _Kty=short,
+                     _Ty=CFont::s_CharData
+                 ]
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\cfont.h(56): warning C4251: 'CFont::m_kernings' : class 'std::map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CFont'
+                 with
+                 [
+                     _Kty=short,
+                     _Ty=std::map<short,char>
+                 ]
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\inc\ctexture.h(40): warning C4251: 'CTexture::m_textureMap' : class 'stdext::hash_map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CTexture'
                  with
                  [
                      _Kty=const char *,
                      _Ty=unsigned int
                  ]
-         CSpritebatch.cpp
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(52): warning C4251: 'CSpritebatch::m_sorcRect' : struct 'glm::detail::tvec4<T>' needs to have dll-interface to be used by clients of class 'CSpritebatch'
-                 with
-                 [
-                     T=glm::mediump_float
-                 ]
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(70): warning C4251: 'CSpritebatch::m_vertex' : struct 'CSpritebatch::SBVertex' needs to have dll-interface to be used by clients of class 'CSpritebatch'
-                 c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(60) : see declaration of 'CSpritebatch::SBVertex'
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(81): warning C4251: 'CSpritebatch::m_projection' : struct 'glm::detail::tmat4x4<T>' needs to have dll-interface to be used by clients of class 'CSpritebatch'
-                 with
-                 [
-                     T=glm::lowp_float
-                 ]
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\cspritebatch.cpp(3): warning C4005: '_CRT_SECURE_NO_DEPRECATE' : macro redefinition
-                 command-line arguments :  see previous definition of '_CRT_SECURE_NO_DEPRECATE'
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\cspritebatch.cpp(86): warning C4244: 'argument' : conversion from 'unsigned int' to 'const float', possible loss of data
-         CFontManager.cpp
-         CFont.cpp
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\ctexture.h(40): warning C4251: 'CTexture::m_textureMap' : class 'stdext::hash_map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CTexture'
-                 with
-                 [
-                     _Kty=const char *,
-                     _Ty=unsigned int
-                 ]
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\cfont.cpp(51): warning C4800: 'char *' : forcing value to bool 'true' or 'false' (performance warning)
-         Application.cpp
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\ctexture.h(40): warning C4251: 'CTexture::m_textureMap' : class 'stdext::hash_map<_Kty,_Ty>' needs to have dll-interface to be used by clients of class 'CTexture'
-                 with
-                 [
-                     _Kty=const char *,
-                     _Ty=unsigned int
-                 ]
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(52): warning C4251: 'CSpritebatch::m_sorcRect' : struct 'glm::detail::tvec4<T>' needs to have dll-interface to be used by clients of class 'CSpritebatch'
-                 with
-                 [
-                     T=glm::mediump_float
-                 ]
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(70): warning C4251: 'CSpritebatch::m_vertex' : struct 'CSpritebatch::SBVertex' needs to have dll-interface to be used by clients of class 'CSpritebatch'
-                 c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(60) : see declaration of 'CSpritebatch::SBVertex'
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\inc\cspritebatch.h(81): warning C4251: 'CSpritebatch::m_projection' : struct 'glm::detail::tmat4x4<T>' needs to have dll-interface to be used by clients of class 'CSpritebatch'
-                 with
-                 [
-                     T=glm::lowp_float
-                 ]
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\application.cpp(152): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\application.cpp(166): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\application.cpp(167): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\tomasz.roczniak\documents\github\2dengine\tomaszroczniak2dengine\src\application.cpp(168): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\src\cfont..cpp(13): warning C4018: '<' : signed/unsigned mismatch
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\src\cfont..cpp(95): warning C4715: 'CFont::LoadFont' : not all control paths return a value
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll" /INCREMENTAL /NOLOGO /LIBPATH:.\Libs\x86\glew\lib /LIBPATH:".\Libs\x86\glfw\lib-msvc100" /LIBPATH:.\Libs /LIBPATH:.\Debug /LIBPATH:.\Libs\soil\lib\vs2012 OpenGL32.lib glfw.lib glew32s.lib glu32.lib SOIL_d.lib tinyxml2.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.lib" /MACHINE:X86 /DLL Debug\Application.obj
-         Debug\CFont.obj
-         Debug\CFontManager.obj
+         B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll" /INCREMENTAL /NOLOGO /LIBPATH:.\Libs\x86\glew\lib /LIBPATH:".\Libs\x86\glfw\lib-msvc100" /LIBPATH:.\Libs /LIBPATH:.\Debug /LIBPATH:.\Libs\soil\lib\vs2012 OpenGL32.lib glfw.lib glew32s.lib glu32.lib SOIL_d.lib tinyxml2.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.lib" /MACHINE:X86 /DLL Debug\Application.obj
+         Debug\CFont..obj
          Debug\CSpritebatch.obj
          Debug\CTexture.obj
          Debug\Framework.obj
-         Debug\tinyxml2.obj
-            Creating library C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.lib and object C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.exp
+            Creating library B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.lib and object B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.exp
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\vc100.pdb'; linking object as if no debug info
-     1>SOIL_d.lib(image_DXT.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(image_DXT.obj)' or at 'C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
-     1>SOIL_d.lib(image_helper.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(image_helper.obj)' or at 'C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
-     1>SOIL_d.lib(SOIL.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(SOIL.obj)' or at 'C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
-     1>SOIL_d.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(stb_image_aug.obj)' or at 'C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
-         TomaszRoczniak2DEngine.vcxproj -> C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll
-     1>Done Building Project "C:\Users\tomasz.roczniak\Documents\GitHub\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" (Rebuild target(s)).
+     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\vc100.pdb'; linking object as if no debug info
+     1>SOIL_d.lib(image_DXT.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(image_DXT.obj)' or at 'B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
+     1>SOIL_d.lib(image_helper.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(image_helper.obj)' or at 'B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
+     1>SOIL_d.lib(SOIL.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(SOIL.obj)' or at 'B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
+     1>SOIL_d.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL_d.lib(stb_image_aug.obj)' or at 'B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\vc110.pdb'; linking object as if no debug info
+         TomaszRoczniak2DEngine.vcxproj -> B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll
+     1>Done Building Project "B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.14
+Time Elapsed 00:00:01.30

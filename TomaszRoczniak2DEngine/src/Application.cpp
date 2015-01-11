@@ -5,7 +5,6 @@
 #include <assert.h>
 #include "CTexture.h"
 #include "CSpritebatch.h"
-#include "CFontManager.h"
 
 void APIENTRY glErrorCallback(GLenum source,
 	GLenum type, GLuint id, GLenum severity,
@@ -99,7 +98,6 @@ bool Application::InitialseWindow(unsigned int a_uiWindowWidth, unsigned int a_u
 	const char* fontName = "./arial.png";
 	const char* xmlName = "./arial.xml";
 
-	m_font = new CFontManager();
 	m_texture = new CTexture();
 	m_spriteBatch = new CSpritebatch(m_uiWindowWidth, m_uiWinidowHeight);
 	m_spriteBatch->Begin();
@@ -122,8 +120,8 @@ void Application::Shutdown()
 	glfwCloseWindow();
 	glfwTerminate();
 	
-	delete m_font;
-	m_font = nullptr;
+	//delete m_font;
+	//m_font = nullptr;
 }
 
 void Application::EnableVSync(bool a_bEnabled)
@@ -186,9 +184,9 @@ void Application::DrawTexture(unsigned int textureID, float xPos, float yPos, fl
 }
 
 // Create, Draw and Destroy a Font Function
-void Application::CreateFont()
+unsigned int Application::CreateFont()
 {
-	m_font->LoadFont("arial.png", "arial.xml");
+	return 0;//m_font->LoadFont("arial.png", "arial.xml");
 }
 void Application::DestroyFont(unsigned int fontID)
 {
@@ -197,5 +195,5 @@ void Application::DestroyFont(unsigned int fontID)
 
 void Application::DrawFont(const char* text, float xPos, float yPos, float size)
 {
-	m_font->DrawString(text, xPos, yPos, size);
+	//m_font->DrawString(text, xPos, yPos, size);
 }

@@ -22,7 +22,7 @@
 
 
 class CTexture;
-class CFont;
+//class CFont;
 
 class FRAMEWORK2D CSpritebatch
 {

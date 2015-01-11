@@ -1,83 +1,59 @@
-////////////////////////////////////////////////////////////////////////////////////////////
-//	
-//	Author:			Adam Coulson
-//	Date:			
-//	Description:	
-//	
-////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//	Creator: Tomasz Roczniak
+//	Date: 11-1-2015
+//	Description:This class is to Load in the font bitmap so  
+//				then we can draw font to the screen.
+////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef CFONT_H_
+#define CFONT_H_
 
-#ifndef CFONT_H
-#define CFONT_H
+#ifndef FRAMEWORK2D_EXPORT
+#define FRAMEWORK2D __declspec(dllexport)
+#else 
+#define FRAMEWORK2D __declspec(dllexport)
+#endif
 
-#include <glm.hpp>
-#include <ext.hpp>
+#include <vector>;
+#include <map>;
 
-class CCharacter;
+class CTexture;
 
-class CFont
+
+class FRAMEWORK2D CFont
 {
 public:
-	
-	CFont( const char* a_cXmlName );
+	// Constructor and de-Constructor
+	CFont();
 	~CFont();
-	
-	void DrawString( const char* a_String, float a_fPosX, float a_fPosY, float a_fSize );
 
-protected:
-private:
-	
-	void			Begin();
-	void			End();
+	// loads in the font
+	unsigned int LoadFont(char* fileName);
 
-	char			m_Path[128];
-	char			m_XmlName[128];
-	char			m_TextureName[128];
-	unsigned int	m_FontTexture;
-	
-	CCharacter*		m_Characters[256];
+	// struct to hold the info for each character 
+	struct s_CharData
+	{
+		// the chars id
+		short m_ID;
+		// for each chars info as to where is it on the texture
+		short m_xPos, m_yPos, m_height, m_width, m_xOffSet, m_yOffSet, m_advanced;
+		// this is just an index for the vector of textures
+		unsigned char m_pageNumber;
+	};
 
-	int				m_Start;
-	int				m_End;
-	int				m_LineSpacing;
-	int				m_Assent;
-	int				m_Size;
-
-};
-
-#endif
-
-////////////////////////////////////////////////////////////////////////////////////////////
-//	
-//	Author:			Adam Coulson
-//	Date:			
-//	Description:	
-//	
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#ifndef CCHARATER_H
-#define CCHARATER_H
-
-class CCharacter
-{
-public:
-	
-	CCharacter( float a_fAdvance, float a_fMinU, float a_fMinV, float a_fMaxU, float a_fMaxV );
-	~CCharacter();
-
-	float GetAdvance( float a_fSize );
-	void Draw( float a_fPosX, float a_fPosY, float a_fSizeX, float a_fSizeY, float a_fColour = 1.0f );
-
-protected:
 private:
 
-	float m_fAdvancePercent;
-	
-	int		m_iPosition[8];
-	float	m_fUV[8];
-	float	m_fColour[16];
+	// the number of pixels representing the height of the individual line
+	unsigned char m_lineHeight;
 
+	// a vector to store for each texture 
+	std::vector<CTexture*>m_textures;
+
+	// map for the character info loook up
+	std::map<short, s_CharData>m_charSet;
+
+	//map to store the kernings for character pairs
+	std::map<short, std::map<short , char>>m_kernings;
 };
 
-#endif
+#endif //CFONT_H_
