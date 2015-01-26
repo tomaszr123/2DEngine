@@ -79,17 +79,25 @@ unsigned int CFont::LoadFont(char * fileName)
 				c.m_advanced	= currenchar->IntAttribute("xadvance");
 				c.m_pageNumber	= currenchar->IntAttribute("page");
 
-				//m_charSet.insert(c,c);
-
+				///TO DO: Push the data into the map and store it
+				//
+				//m_charSet.insert(c.m_ID,c);
+				//
 				currenchar = currenchar->NextSiblingElement();
 			}
 		}
+		//------------------TO DO:---------------------------------------------
+		// Get all the Kerning information and then store into m_kernings map
+		//---------------------------------------------------------------------
 		if(strcmp(current->Name(),"kernings") == 0)
 		{
-			
+			tinyxml2::XMLElement *currentker = current->FirstChildElement();
+			while (currentker != NULL)
+			{
+
+
+				current = current->NextSiblingElement();
+			}
 		}
-		current = current->NextSiblingElement();
 	}
-
-
 }
