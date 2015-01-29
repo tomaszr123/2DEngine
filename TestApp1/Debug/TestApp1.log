@@ -1,4 +1,4 @@
-﻿Build started 11-Jan-15 10:37:23 PM.
+﻿Build started 29-Jan-15 9:13:52 PM.
      1>Project "B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TestApp1\TestApp1.vcxproj" on node 2 (Build target(s)).
      1>Link:
          B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TestApp1\Bin\TestApp1_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\\" TomaszRoczniak2DEngine_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TestApp1\Bin\TestApp1_d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TestApp1\Bin\TestApp1_d.lib" /MACHINE:X86 Debug\main.obj
@@ -12,4 +12,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.24
+Time Elapsed 00:00:00.39

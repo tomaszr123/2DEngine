@@ -1,4 +1,4 @@
-﻿Build started 27-Jan-15 9:15:43 AM.
+﻿Build started 29-Jan-15 10:04:33 PM.
      1>Project "B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\TomaszRoczniak2DEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\Libs\x86\glew\include /I.\Libs\x86\glfw\include /I.\inc\ /I.\bin\include\ /I.\Libs\soil\src /I.\Libs\glm\glm /I.\inc\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TOMASZROCZNIAK2DENGINE_EXPORTS /D GLEW_STATIC /D _CRT_SECURE_NO_DEPRECATE /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\CFont..cpp
@@ -29,7 +29,7 @@
                      _Ty=unsigned int
                  ]
      1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\src\cfont..cpp(13): warning C4018: '<' : signed/unsigned mismatch
-     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\src\cfont..cpp(103): warning C4715: 'CFont::LoadFont' : not all control paths return a value
+     1>b:\users\tomasz\documents\visual studio 2012\projects\2dengine\tomaszroczniak2dengine\src\cfont..cpp(102): warning C4715: 'CFont::LoadFont' : not all control paths return a value
        Link:
          B:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.dll" /INCREMENTAL /NOLOGO /LIBPATH:.\Libs\x86\glew\lib /LIBPATH:".\Libs\x86\glfw\lib-msvc100" /LIBPATH:.\Libs /LIBPATH:.\Debug /LIBPATH:.\Libs\soil\lib\vs2012 OpenGL32.lib glfw.lib glew32s.lib glu32.lib SOIL_d.lib tinyxml2.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"B:\Users\tomasz\Documents\Visual Studio 2012\Projects\2DEngine\TomaszRoczniak2DEngine\bin\TomaszRoczniak2DEngine_d.lib" /MACHINE:X86 /DLL Debug\Application.obj
          Debug\CFont..obj
@@ -41,4 +41,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.79
+Time Elapsed 00:00:01.82

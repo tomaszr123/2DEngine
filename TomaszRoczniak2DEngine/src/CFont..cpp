@@ -79,10 +79,9 @@ unsigned int CFont::LoadFont(char * fileName)
 				c.m_advanced	= currenchar->IntAttribute("xadvance");
 				c.m_pageNumber	= currenchar->IntAttribute("page");
 
-				///TO DO: Push the data into the map and store it
-				//
-				//m_charSet.insert(c.m_ID,c);
-				//
+				// setting the data to the character data in the map
+				m_charSet[c.m_ID] = c;
+
 				currenchar = currenchar->NextSiblingElement();
 			}
 		}
